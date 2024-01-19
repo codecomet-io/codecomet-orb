@@ -1,13 +1,13 @@
 version: 2.1
 
 description: >
-  Instrument and monitor your tests' performance with CodeComet
-# What will your orb allow users to accomplish?
-# Descriptions should be short, simple, and informative.
-
+  With the CodeComet orb, you can instrument and monitor your tests' performance.
+  Simply put in your existing test command, and CodeComet will ingest your test
+  data and upload your performance metrics to our web app. Track the runtime, flakiness,
+  memory, logs, and more for all of your tests!
 # This information will be displayed in the orb registry and is not mandatory.
 display:
-  home_url: "https://codecomet.io/docs"
+  home_url: "https://codecomet.io"   # Make docs page soon.
   source_url: "https://github.com/codecomet-io/codecomet-orb"
 
 # If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.
