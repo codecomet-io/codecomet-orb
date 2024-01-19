@@ -1,0 +1,22 @@
+description: >
+  This command ingests test output using CodeComet's CLI, and forwards it to
+  the CodeComet web app.
+parameters:
+  test_command:
+    type: string
+    default: ""
+    description: "The full test command; for example, `go test ./...`"
+  test_suite_name:
+    type: string
+    default: ""
+    description: >
+      A tag that describes your test suite. If you have multiple test commands that
+      should share a test suite name, you can tag them all with the same name.
+
+steps:
+  - run:
+      environment:
+        TEST_COMMAND: <<parameters.test_command>>
+        TEST_SUITE_NAME: <<parameters.test_suite_name>>
+      name: Ingest tests
+      command: codecomet -s ${TEST_SUITE_NAME} -- ${TEST_COMMAND}
