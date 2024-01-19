@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - codecomet-orb/greet
+      - codecomet-orb/install
 workflows:
   test-deploy:
     jobs:
