@@ -36,7 +36,7 @@ steps:
   - unless:
       condition: <<parameters.coverage_file>>
       steps:
-        -run:
+        - run:
             environment:
               JUNIT_FILE: <<parameters.junit_file>>
               TEST_SUITE_NAME: <<parameters.test_suite_name>>
