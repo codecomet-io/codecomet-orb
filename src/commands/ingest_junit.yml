@@ -20,6 +20,7 @@ parameters:
       should share a test suite name, you can tag them all with the same name.
 
 steps:
+  - run: echo "Preparing to ingest JUnit file"
   - when:
       condition: <<parameters.coverage_file>>
       steps:
