@@ -2,11 +2,11 @@ description: >
   This command ingests test output using CodeComet's CLI, and forwards it to
   the CodeComet web app.
 parameters:
-  test-command:
+  test_command:
     type: string
     default: ""
     description: "The full test command; for example, `go test ./...`"
-  test-suite-name:
+  test_suite_name:
     type: string
     default: ""
     description: >
@@ -16,7 +16,7 @@ parameters:
 steps:
   - run:
       environment:
-        TEST_COMMAND: <<parameters.test-command>>
-        TEST_SUITE_NAME: <<parameters.test-suite-name>>
+        TEST_COMMAND: <<parameters.test_command>>
+        TEST_SUITE_NAME: <<parameters.test_suite_name>>
       name: Ingest tests
       command: codecomet -s ${TEST_SUITE_NAME} -- ${TEST_COMMAND}
