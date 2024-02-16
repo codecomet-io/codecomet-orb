@@ -1,0 +1,44 @@
+description: >
+  This command ingests test output using CodeComet's CLI, and forwards it to
+  the CodeComet web app.
+parameters:
+  junit_file:
+    type: string
+    default: ""
+    description: >
+      A JUnit XML file to upload.
+  coverage_file:
+    type: string
+    default: ""
+    description: >
+      You can include a coverage file if you're using our JUnit integration.
+  test_suite_name:
+    type: string
+    default: ""
+    description: >
+      A tag that describes your test suite. If you have multiple test commands that
+      should share a test suite name, you can tag them all with the same name.
+
+steps:
+  - run:
+      name: "pre-echo"
+      command: echo "Preparing to ingest JUnit file"
+  - when:
+      condition: <<parameters.coverage_file>>
+      steps:
+        - run:
+            environment:
+              JUNIT_FILE: <<parameters.junit_file>>
+              TEST_SUITE_NAME: <<parameters.test_suite_name>>
+              COVERAGE_FILE_NAME: <<parameters.coverage_file>>
+            name: Ingest tests
+            command: codecomet -s ${TEST_SUITE_NAME} -c ${COVERAGE_FILE_NAME} junit ${JUNIT_FILE}
+  - unless:
+      condition: <<parameters.coverage_file>>
+      steps:
+        - run:
+            environment:
+              JUNIT_FILE: <<parameters.junit_file>>
+              TEST_SUITE_NAME: <<parameters.test_suite_name>>
+            name: Ingest tests
+            command: codecomet -s ${TEST_SUITE_NAME} junit ${JUNIT_FILE}
