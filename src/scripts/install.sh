@@ -49,7 +49,7 @@ install_cc_cli() {
     fi
 
     echo "Installing the CodeComet CLI..."
-    set -x; $sudo tar -xzvf $file_path -C /usr/local/bin ; set +x
+    set -x; $sudo tar -xzvf "$file_path" -C /usr/local/bin ; set +x
 
 }
 

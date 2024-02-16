@@ -6,13 +6,12 @@ parameters:
     type: string
     default: ""
     description: >
-      A JUnit XML file to upload. Use this or the test-command, but not both.
+      A JUnit XML file to upload.
   coverage-file:
     type: string
     default: ""
     description: >
-      You can include a coverage file if you're using our JUnit integration. Use
-      this with junit-file, but not with test-command.
+      You can include a coverage file if you're using our JUnit integration.
   test-suite-name:
     type: string
     default: ""
