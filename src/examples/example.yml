@@ -6,7 +6,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    codecomet-orb: codecomet/codecomet-orb@0.3.0
+    codecomet-orb: codecomet/codecomet-orb@0.3.1
   workflows:
     use-my-orb:
       jobs:
