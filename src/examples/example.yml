@@ -6,8 +6,11 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    codecomet-orb: codecomet/codecomet-orb@0.3.0
   workflows:
     use-my-orb:
       jobs:
-        - <orb-name>/<job-name>
+        - codecomet-orb/install
+        - codecomet-orb/ingest:
+            test-command: go test -race ./...
+            test-suite-name: my-backend-tests
