@@ -23,17 +23,19 @@ steps:
   - when:
       condition: <<parameters.coverage_file>>
       steps:
-        environment:
-          JUNIT_FILE: <<parameters.junit_file>>
-          TEST_SUITE_NAME: <<parameters.test_suite_name>>
-          COVERAGE_FILE_NAME: <<parameters.coverage_file>>
-        name: Ingest tests
-        command: codecomet -s ${TEST_SUITE_NAME} -c ${COVERAGE_FILE_NAME} junit ${JUNIT_FILE}
+        - run:
+            environment:
+              JUNIT_FILE: <<parameters.junit_file>>
+              TEST_SUITE_NAME: <<parameters.test_suite_name>>
+              COVERAGE_FILE_NAME: <<parameters.coverage_file>>
+            name: Ingest tests
+            command: codecomet -s ${TEST_SUITE_NAME} -c ${COVERAGE_FILE_NAME} junit ${JUNIT_FILE}
   - unless:
       condition: <<parameters.coverage_file>>
       steps:
-        environment:
-          JUNIT_FILE: <<parameters.junit_file>>
-          TEST_SUITE_NAME: <<parameters.test_suite_name>>
-        name: Ingest tests
-        command: codecomet -s ${TEST_SUITE_NAME} junit ${JUNIT_FILE}
+        -run:
+            environment:
+              JUNIT_FILE: <<parameters.junit_file>>
+              TEST_SUITE_NAME: <<parameters.test_suite_name>>
+            name: Ingest tests
+            command: codecomet -s ${TEST_SUITE_NAME} junit ${JUNIT_FILE}
