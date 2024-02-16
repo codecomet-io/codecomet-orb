@@ -1,5 +1,5 @@
 description: >
-  Sample example description.
+  This is an example of configuring the CodeComet orb to ingest a `go test` command.
 # Provide a use-case based example for using this orb.
 # Everything in the `usage` section will be displayed in the orb registry.
 # Comments are not retained.
@@ -12,5 +12,5 @@ usage:
       jobs:
         - codecomet-orb/install
         - codecomet-orb/ingest:
-            test-command: go test -race ./...
-            test-suite-name: my-backend-tests
+            test_command: go test -race ./...
+            test_suite_name: my-backend-tests
