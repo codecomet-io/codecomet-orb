@@ -21,4 +21,8 @@ parameters:
 steps:
   - run:
       name: Ingest JUnit file
-      command: codecomet --suite="${TEST_SUITE_NAME}" --coverage="${COVERAGE_FILE_NAME}" junit "${JUNIT_FILE}"
+      environment:
+        JUNIT_FILE: <<parameters.junit_file>>
+        TEST_SUITE_NAME: <<parameters.test_suite_name>>
+        COVERAGE_FILE: <<parameters.coverage_file>>
+      command: codecomet --suite="${TEST_SUITE_NAME}" --coverage="${COVERAGE_FILE}" junit "${JUNIT_FILE}"
