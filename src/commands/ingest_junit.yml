@@ -4,7 +4,6 @@ description: >
 parameters:
   junit_file:
     type: string
-    default: ""
     description: >
       A JUnit XML file to upload.
   coverage_file:

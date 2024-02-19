@@ -4,7 +4,6 @@ description: >
 parameters:
   test_command:
     type: string
-    default: ""
     description: "The full test command; for example, `go test ./...`"
   test_suite_name:
     type: string
