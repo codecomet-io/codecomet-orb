@@ -19,4 +19,4 @@ steps:
         TEST_COMMAND: <<parameters.test_command>>
         TEST_SUITE_NAME: <<parameters.test_suite_name>>
       name: Ingest tests
-      command: codecomet -s ${TEST_SUITE_NAME} -- ${TEST_COMMAND}
+      command: codecomet --suite="${TEST_SUITE_NAME}" -- ${TEST_COMMAND}
