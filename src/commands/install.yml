@@ -2,7 +2,7 @@ description: Install the CodeComet CLI. This command should be run before invoki
 parameters:
   version:
     type: string
-    default: "1.1.0"
+    default: "1.2.0"
     description: Specify the full semver versioned tag to use for the CodeComet CLI.
 steps:
   - run:
